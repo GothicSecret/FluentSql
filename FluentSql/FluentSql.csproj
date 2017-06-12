@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C7CC7B4E-3D90-4074-9246-724366983942}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FluentSql</RootNamespace>
+    <AssemblyName>FluentSql</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DalSql\BaseDalSqlDataReader.cs" />
+    <Compile Include="DalSql\CachedDalSqlDataReader.cs" />
+    <Compile Include="DalSql\Enums\CachingMode.cs" />
+    <Compile Include="DalSql\Interfaces\IDalSqlConnectionFactory.cs" />
+    <Compile Include="DalSql\Interfaces\IDalSqlTransaction.cs" />
+    <Compile Include="DalSql\Interfaces\IDalSqlDataReader.cs" />
+    <Compile Include="DalSql\Interfaces\IDalSqlConnection.cs" />
+    <Compile Include="DalSql\Interfaces\IDalSqlCommand.cs" />
+    <Compile Include="DalSql\DalSqlConnectionFactory.cs" />
+    <Compile Include="DalSql\LazyCachedDalSqlDataReader.cs" />
+    <Compile Include="FluentSql\FluentSqlRepository.cs" />
+    <Compile Include="FluentSql\FluentSqlTransactionFactory.cs" />
+    <Compile Include="FluentSql\FluentSqlCommandFactory.cs" />
+    <Compile Include="FluentSql\FluentSqlTransaction.cs" />
+    <Compile Include="FluentSql\Interfaces\IFluentSqlCommand.cs" />
+    <Compile Include="FluentSql\BaseFluentSqlCommand.cs" />
+    <Compile Include="DalSql\DalSqlCommand.cs" />
+    <Compile Include="DalSql\DalSqlConnection.cs" />
+    <Compile Include="DalSql\NonCachedDalSqlDataReader.cs" />
+    <Compile Include="DalSql\DalSqlTransaction.cs" />
+    <Compile Include="FluentSql\Interfaces\IFluentSqlTransaction.cs" />
+    <Compile Include="FluentSql\NonQueryFluentSqlCommand.cs" />
+    <Compile Include="FluentSql\ReaderFluentSqlCommand.cs" />
+    <Compile Include="FluentSql\ScalarFluentSqlCommand.cs" />
+    <Compile Include="FluentSql\Interfaces\INonQueryFluentSqlCommand.cs" />
+    <Compile Include="FluentSql\Interfaces\IReaderFluentSqlCommand.cs" />
+    <Compile Include="FluentSql\Interfaces\IScalarFluentSqlCommand.cs" />
+    <Compile Include="FluentSql\Interfaces\IFluentCommandFactory.cs" />
+    <Compile Include="FluentSql\Interfaces\IFluentSqlTransactionFactory.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Queries\SqlQueryAssemblyFactoryBase.cs" />
+    <Compile Include="Queries\SqlQueryFactoryBase.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Docs\Changes.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

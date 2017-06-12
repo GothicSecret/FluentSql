@@ -1,0 +1,5 @@
+D:\CSharp\My\DefaultCollection\GraceR2Project\Development\FluentSql\FluentSql\bin\Debug\FluentSql.dll
+D:\CSharp\My\DefaultCollection\GraceR2Project\Development\FluentSql\FluentSql\bin\Debug\FluentSql.pdb
+D:\CSharp\My\DefaultCollection\GraceR2Project\Development\FluentSql\FluentSql\obj\Debug\FluentSql.csprojResolveAssemblyReference.cache
+D:\CSharp\My\DefaultCollection\GraceR2Project\Development\FluentSql\FluentSql\obj\Debug\FluentSql.dll
+D:\CSharp\My\DefaultCollection\GraceR2Project\Development\FluentSql\FluentSql\obj\Debug\FluentSql.pdb

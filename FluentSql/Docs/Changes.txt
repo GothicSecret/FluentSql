@@ -1,0 +1,97 @@
+﻿+ Added
+- Removed
+# Fix
+* Changed, minor
+! Changed, major
+$ Refactored
+
+TODO:
+=====
+
+1.0.0.31
+$ Rafactored
+* CreateConnection => Create
+* FluentCommandFactory => FluentSqlCommandFactory
++ Add DalSqlCommand.Connection
++ Add FluentCommandFactory.DefaulConnection
+- Remove FluentCommandFactory.Context
+- Remove FluentCommandFactory.KeepConnection
++ Add FluentSqlRepository
++ Add FluentSqlTransaction
++ Add SqlQueryFactoryBase
++ Add SqlQueryAssemblyFactoryBase
+
+1.0.0.25
++ Add ExecuteScalar result casting
+
+1.0.0.24
++ Add DalSqlReader.Get{XXX}Nullable methods
+
+1.0.0.23
+* Minor changes
+
+1.0.0.22
+# Add AddWithValue method when calling with null argument
+
+1.0.0.21
+* Minor changes
+
+1.0.0.20
+# Fix Connection closed problem
+
+1.0.0.19
+* Minor changes
+
+1.0.0.18
+* Minor changes
+
+1.0.0.17
+$ Refactoring DalContext => DalContextBase
+
+1.0.0.16
++ Add ReadAllBytes method
+
+1.0.0.15
+# Fix SetParameters
+
+1.0.0.14
+$ Refactored all fluent commands
+
+1.0.0.13
++ Added interfaces methods to commands that returns themselves as interfaces
+
+1.0.0.12
++ Added missing members to interfaces
+
+1.0.0.11
++ Added IFluentCommandFactory interface
+
+1.0.0.10
++ LazyCachedDalSqlDataReader - Added cahching modes: lazy (used when CahchingMode.Lazy)
++ Addded FluentCommandFactory
+
+1.0.0.9
++ Added BaseFluentSqlCommand<T>.KeepConnection option
+  (True - uses DalContext.CreateConnection)
+  (False - uses DalContext.PersistentConnection, which must be managed manually)
++ Added DalSqlConnectionFactory
+* DalContext has PersistentConnection (old)
++ DalContext has CreateConnection() method
+! DalSqlDataReader -> NonCachedDalSqlDataReader (used when CahchingMode.Disabled)
++ Added CachedDalSqlDataReader (DalSqlDataReader - Add caching for field names/indices) (used when CahchingMode.Standard)
++ Add ReaderFluentSqlCommand<TResultContainer>.SetCachingMode (Default is CachingMode.Standard)
++ DalSqlDataReader - Add cahching modes: disabled, standart
+$ - Refactored DalSql* objects and FluentCommands to use IDalSqlDataReader
+* Fixed bug when SerializeParameters is null
+
+1.0.0.6
++ ExecuteReaderYield Added to ReaderFluentSqlCommand<TResultContainer>
+
+1.0.0.5
++ Added new methods to DalSqlDataReader.
++ Added support for multiple Results handling in ReaderFluentSqlCommand<T>
+
+1.0.0.4
++ Added BaseFluentSqlCommand<T>.SetKeepConnection(bool). Default is true.
++ Added ReaderFluentSqlCommand<T>.SetBehavior(CommandBehavior). Default is CommandBehavior.Default.
++ Added new methods to DalSqlDataReader.
