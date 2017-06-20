@@ -32,7 +32,7 @@ namespace FluentSql
                     int result = 0;
                     using (var command = transaction.CreateCommand(CommandType, Command))
                     {
-                        SerializeParameters?.Invoke(command);
+                        ExecuteSerializeParametersImpl(command);
                         result = command.ExecuteNonQuery();
                     }
                     transaction.Commit();
@@ -44,7 +44,7 @@ namespace FluentSql
                 int result = 0;
                 using (var command = Transaction.CreateCommand(CommandType, Command))
                 {
-                    SerializeParameters?.Invoke(command);
+                    ExecuteSerializeParametersImpl(command);
                     result = command.ExecuteNonQuery();
                 }
                 return result;

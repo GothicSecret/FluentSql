@@ -4,7 +4,7 @@ using System.Data.SqlClient;
 
 namespace FluentSql
 {
-    public class DalSqlConnection : IDisposable, IDalSqlConnection
+    public class DalSqlConnection : IDalSqlConnection
     {
         public DalSqlConnection(string iConnectionString, bool iKeepAlive = false)
         {

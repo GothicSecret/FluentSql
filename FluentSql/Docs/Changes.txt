@@ -8,6 +8,20 @@ $ Refactored
 TODO:
 =====
 
+1.0.0.35
+! Rename IFluentCommandFactory => IFluentSqlCommandFactory
+
+1.0.0.34
+! FluentSqlCommand.SetParameters(Action<IDalSqlCommand> iSerializeParameters) now adds action to the list
+    of "to be done" instead of just execute only one specified
+
+1.0.0.33
+# Fix DefaultConnection and DefaultTransaction
+
+1.0.0.32
+* IDalSqlConnection DefaultConnection => Func<IDalSqlConnection> DefaultConnection
+* IFluentSqlTransaction DefaultTransaction => Func<IFluentSqlTransaction> DefaultTransaction
+
 1.0.0.31
 $ Rafactored
 * CreateConnection => Create

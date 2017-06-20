@@ -1,10 +1,13 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 
 namespace FluentSql
 {
-    public interface IFluentCommandFactory
+    public interface IFluentSqlCommandFactory
     {
-        IDalSqlConnection DefaultConnection { get; }
+        Func<IDalSqlConnection> DefaultConnection { get; }
+
+        Func<IFluentSqlTransaction> DefaultTransaction { get; }
 
         CommandBehavior DefaultBehavior { get; }
 
@@ -20,16 +23,16 @@ namespace FluentSql
 
         IScalarFluentSqlCommand Scalar();
 
-        IFluentCommandFactory SetDefaultCachingMode(CachingMode iCachingMode);
+        IFluentSqlCommandFactory SetDefaultCachingMode(CachingMode iCachingMode);
 
-        IFluentCommandFactory SetDefaultBehavior(CommandBehavior iBehavior);
+        IFluentSqlCommandFactory SetDefaultBehavior(CommandBehavior iBehavior);
 
-        IFluentCommandFactory SetDefaultCommandType(CommandType iCommandType);
+        IFluentSqlCommandFactory SetDefaultCommandType(CommandType iCommandType);
 
-        IFluentCommandFactory SetDefaultConnection(IDalSqlConnection iConnection);
+        IFluentSqlCommandFactory SetDefaultConnection(Func<IDalSqlConnection> iConnection);
 
-        IFluentCommandFactory SetDefaultTransaction(IFluentSqlTransaction iTransaction);
+        IFluentSqlCommandFactory SetDefaultTransaction(Func<IFluentSqlTransaction> iTransaction);
 
-        IFluentCommandFactory SetDefaultIsolationLevel(IsolationLevel iIsolationLevel);
+        IFluentSqlCommandFactory SetDefaultIsolationLevel(IsolationLevel iIsolationLevel);
     }
 }

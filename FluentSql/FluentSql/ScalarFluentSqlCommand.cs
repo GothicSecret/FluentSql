@@ -66,7 +66,7 @@ namespace FluentSql
                     object rawResult = null;
                     using (var command = transaction.CreateCommand(CommandType, Command))
                     {
-                        SerializeParameters?.Invoke(command);
+                        ExecuteSerializeParametersImpl(command);
                         rawResult = command.ExecuteScalar();
                     }
                     transaction.Commit();
@@ -78,7 +78,7 @@ namespace FluentSql
                 object rawResult = null;
                 using (var command = Transaction.CreateCommand(CommandType, Command))
                 {
-                    SerializeParameters?.Invoke(command);
+                    ExecuteSerializeParametersImpl(command);
                     rawResult = command.ExecuteScalar();
                 }
                 return (T)rawResult;

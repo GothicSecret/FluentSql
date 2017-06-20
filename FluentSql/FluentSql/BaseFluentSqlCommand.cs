@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 
 namespace FluentSql
@@ -9,6 +10,7 @@ namespace FluentSql
         {
             IsolationLevel = IsolationLevel.ReadCommitted;
             CommandType = CommandType.StoredProcedure;
+            SerializeParameters = new List<Action<IDalSqlCommand>>();
         }
 
         public string Command { get; set; }
@@ -21,7 +23,7 @@ namespace FluentSql
 
         public IsolationLevel IsolationLevel { get; set; }
 
-        public Action<IDalSqlCommand> SerializeParameters { get; set; }
+        public List<Action<IDalSqlCommand>> SerializeParameters { get; set; }
 
         protected void SetCommandImpl(string iCommand)
         {
@@ -50,7 +52,15 @@ namespace FluentSql
 
         protected void SetParametersImpl(Action<IDalSqlCommand> iSerializeParameters)
         {
-            SerializeParameters = iSerializeParameters;
+            SerializeParameters.Add(iSerializeParameters);
+        }
+
+        protected void ExecuteSerializeParametersImpl(IDalSqlCommand command)
+        {
+            for (int i = 0; i < SerializeParameters.Count; i++)
+            {
+                SerializeParameters[i](command);
+            }
         }
     }
 }

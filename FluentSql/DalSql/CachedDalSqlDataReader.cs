@@ -9,7 +9,6 @@ using System.Xml;
 
 namespace FluentSql
 {
-    //TODO: add nullable types handling in easy way
     public class CachedDalSqlDataReader : BaseDalSqlDataReader
     {
         public CachedDalSqlDataReader(SqlDataReader iReader)

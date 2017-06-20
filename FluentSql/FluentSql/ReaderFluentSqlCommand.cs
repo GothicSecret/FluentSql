@@ -43,7 +43,7 @@ namespace FluentSql
                     T result = InitResult();
                     using (var command = transaction.CreateCommand(CommandType, Command))
                     {
-                        SerializeParameters?.Invoke(command);
+                        ExecuteSerializeParametersImpl(command);
                         using (var reader = command.ExecuteReader(Behavior, Caching))
                         {
                             var i = 0;
@@ -72,7 +72,7 @@ namespace FluentSql
                 T result = InitResult();
                 using (var command = Transaction.CreateCommand(CommandType, Command))
                 {
-                    SerializeParameters?.Invoke(command);
+                    ExecuteSerializeParametersImpl(command);
                     using (var reader = command.ExecuteReader(Behavior, Caching))
                     {
                         var i = 0;
@@ -120,7 +120,7 @@ namespace FluentSql
                     T result = InitResult();
                     using (var command = transaction.CreateCommand(CommandType, Command))
                     {
-                        SerializeParameters(command);
+                        ExecuteSerializeParametersImpl(command);
                         using (var reader = command.ExecuteReader(Behavior, Caching))
                         {
                             var i = 0;
@@ -148,7 +148,7 @@ namespace FluentSql
                 T result = InitResult();
                 using (var command = Transaction.CreateCommand(CommandType, Command))
                 {
-                    SerializeParameters(command);
+                    ExecuteSerializeParametersImpl(command);
                     using (var reader = command.ExecuteReader(Behavior, Caching))
                     {
                         var i = 0;

@@ -1,8 +1,9 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 
 namespace FluentSql
 {
-    public class FluentSqlCommandFactory : IFluentCommandFactory
+    public class FluentSqlCommandFactory : IFluentSqlCommandFactory
     {
         public CommandBehavior DefaultBehavior { get; protected set; }
 
@@ -12,41 +13,41 @@ namespace FluentSql
 
         public IsolationLevel DefaultIsolationLevel { get; protected set; }
 
-        public IDalSqlConnection DefaultConnection { get; protected set; }
+        public Func<IDalSqlConnection> DefaultConnection { get; protected set; }
 
-        public IFluentSqlTransaction DefaultTransaction { get; protected set; }
+        public Func<IFluentSqlTransaction> DefaultTransaction { get; protected set; }
 
-        public IFluentCommandFactory SetDefaultConnection(IDalSqlConnection iConnection)
+        public IFluentSqlCommandFactory SetDefaultConnection(Func<IDalSqlConnection> iConnection)
         {
             DefaultConnection = iConnection;
             return this;
         }
 
-        public IFluentCommandFactory SetDefaultTransaction(IFluentSqlTransaction iTransaction)
+        public IFluentSqlCommandFactory SetDefaultTransaction(Func<IFluentSqlTransaction> iTransaction)
         {
             DefaultTransaction = iTransaction;
             return this;
         }
 
-        public IFluentCommandFactory SetDefaultCachingMode(CachingMode iCachingMode)
+        public IFluentSqlCommandFactory SetDefaultCachingMode(CachingMode iCachingMode)
         {
             DefaultCachingMode = iCachingMode;
             return this;
         }
 
-        public IFluentCommandFactory SetDefaultBehavior(CommandBehavior iBehavior)
+        public IFluentSqlCommandFactory SetDefaultBehavior(CommandBehavior iBehavior)
         {
             DefaultBehavior = iBehavior;
             return this;
         }
 
-        public IFluentCommandFactory SetDefaultCommandType(CommandType iCommandType)
+        public IFluentSqlCommandFactory SetDefaultCommandType(CommandType iCommandType)
         {
             DefaultCommandType = iCommandType;
             return this;
         }
 
-        public IFluentCommandFactory SetDefaultIsolationLevel(IsolationLevel iIsolationLevel)
+        public IFluentSqlCommandFactory SetDefaultIsolationLevel(IsolationLevel iIsolationLevel)
         {
             DefaultIsolationLevel = iIsolationLevel;
             return this;
@@ -58,8 +59,8 @@ namespace FluentSql
             {
                 CommandType = DefaultCommandType,
                 IsolationLevel = DefaultIsolationLevel,
-                Connection = DefaultConnection,
-                Transaction = DefaultTransaction
+                Connection = DefaultConnection?.Invoke(),
+                Transaction = DefaultTransaction?.Invoke()
             };
         }
 
@@ -69,8 +70,8 @@ namespace FluentSql
             {
                 CommandType = DefaultCommandType,
                 IsolationLevel = DefaultIsolationLevel,
-                Connection = DefaultConnection,
-                Transaction = DefaultTransaction
+                Connection = DefaultConnection?.Invoke(),
+                Transaction = DefaultTransaction?.Invoke()
             };
         }
 
@@ -80,8 +81,8 @@ namespace FluentSql
             {
                 CommandType = DefaultCommandType,
                 IsolationLevel = DefaultIsolationLevel,
-                Connection = DefaultConnection,
-                Transaction = DefaultTransaction,
+                Connection = DefaultConnection?.Invoke(),
+                Transaction = DefaultTransaction?.Invoke(),
                 Behavior = DefaultBehavior,
                 Caching = DefaultCachingMode
             };

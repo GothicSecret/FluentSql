@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 
 namespace FluentSql
@@ -13,6 +14,6 @@ namespace FluentSql
 
         IsolationLevel IsolationLevel { get; set; }
 
-        Action<IDalSqlCommand> SerializeParameters { get; set; }
+        List<Action<IDalSqlCommand>> SerializeParameters { get; set; }
     }
 }

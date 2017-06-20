@@ -4,13 +4,13 @@
     {
         public readonly T Serializer;
 
-        public FluentSqlRepository(IDalSqlConnectionFactory iConnectionFactory, IFluentCommandFactory iCommandFactory, T iSerializer)
+        public FluentSqlRepository(IDalSqlConnectionFactory iConnectionFactory, IFluentSqlCommandFactory iCommandFactory, T iSerializer)
             : base(iConnectionFactory, iCommandFactory)
         {
             Serializer = iSerializer;
         }
 
-        public FluentSqlRepository(IDalSqlConnectionFactory iConnectionFactory, IFluentCommandFactory iCommandFactory, IFluentSqlTransactionFactory iTransactionFactory, T iSerializer)
+        public FluentSqlRepository(IDalSqlConnectionFactory iConnectionFactory, IFluentSqlCommandFactory iCommandFactory, IFluentSqlTransactionFactory iTransactionFactory, T iSerializer)
             : base(iConnectionFactory, iCommandFactory, iTransactionFactory)
         {
             Serializer = iSerializer;
@@ -19,11 +19,11 @@
 
     public class FluentSqlRepository
     {
-        public readonly IFluentCommandFactory CommandFactory;
+        public readonly IFluentSqlCommandFactory CommandFactory;
         public readonly IDalSqlConnectionFactory ConnectionFactory;
         public readonly IFluentSqlTransactionFactory TransactionFactory;
 
-        public FluentSqlRepository(IDalSqlConnectionFactory iConnectionFactory, IFluentCommandFactory iCommandFactory,
+        public FluentSqlRepository(IDalSqlConnectionFactory iConnectionFactory, IFluentSqlCommandFactory iCommandFactory,
             IFluentSqlTransactionFactory iTransactionFactory = null)
         {
             ConnectionFactory = iConnectionFactory;
