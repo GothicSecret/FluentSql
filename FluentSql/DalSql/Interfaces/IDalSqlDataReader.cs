@@ -61,7 +61,7 @@ namespace FluentSql
 
         Task<T> GetFieldValueAsync<T>(string column, CancellationToken cancellationToken);
 
-        float GetFloat(string column);
+        float GetSingle(string column);
 
         Guid GetGuid(string column);
 

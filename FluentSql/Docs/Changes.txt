@@ -8,6 +8,13 @@ $ Refactored
 TODO:
 =====
 
+1.0.0.39
+! GetFloat => GetSingle
+
+1.0.0.37
++ SingleReaderFluentSqlCommand<T>, ISingleReaderFluentSqlCommand<T>
++ FluentSqlCommandFactory.SingleReader<T>
+
 1.0.0.35
 ! Rename IFluentCommandFactory => IFluentSqlCommandFactory
 

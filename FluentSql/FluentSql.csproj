@@ -65,14 +65,16 @@
     <Compile Include="DalSql\NonCachedDalSqlDataReader.cs" />
     <Compile Include="DalSql\DalSqlTransaction.cs" />
     <Compile Include="FluentSql\Interfaces\IFluentSqlTransaction.cs" />
+    <Compile Include="FluentSql\Interfaces\ISingleReaderFluentSqlCommand.cs" />
     <Compile Include="FluentSql\NonQueryFluentSqlCommand.cs" />
     <Compile Include="FluentSql\ReaderFluentSqlCommand.cs" />
     <Compile Include="FluentSql\ScalarFluentSqlCommand.cs" />
     <Compile Include="FluentSql\Interfaces\INonQueryFluentSqlCommand.cs" />
     <Compile Include="FluentSql\Interfaces\IReaderFluentSqlCommand.cs" />
     <Compile Include="FluentSql\Interfaces\IScalarFluentSqlCommand.cs" />
-    <Compile Include="FluentSql\Interfaces\IFluentCommandFactory.cs" />
+    <Compile Include="FluentSql\Interfaces\IFluentSqlCommandFactory.cs" />
     <Compile Include="FluentSql\Interfaces\IFluentSqlTransactionFactory.cs" />
+    <Compile Include="FluentSql\SingleReaderFluentSqlCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Queries\SqlQueryAssemblyFactoryBase.cs" />
     <Compile Include="Queries\SqlQueryFactoryBase.cs" />

@@ -93,7 +93,7 @@ namespace FluentSql
             return await Reader.GetFieldValueAsync<T>(Reader.GetOrdinal(column));
         }
 
-        public override float GetFloat(string column)
+        public override float GetSingle(string column)
         {
             return Reader.GetFloat(Reader.GetOrdinal(column));
         }

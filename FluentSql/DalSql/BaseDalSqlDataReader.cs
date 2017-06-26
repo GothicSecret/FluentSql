@@ -80,7 +80,7 @@ namespace FluentSql
 
         public abstract Task<T> GetFieldValueAsync<T>(string column, CancellationToken cancellationToken);
 
-        public abstract float GetFloat(string column);
+        public abstract float GetSingle(string column);
 
         public abstract Guid GetGuid(string column);
 

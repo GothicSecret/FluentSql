@@ -87,5 +87,16 @@ namespace FluentSql
                 Caching = DefaultCachingMode
             };
         }
+
+        public ISingleReaderFluentSqlCommand<T> SingleReader<T>()
+        {
+            return new SingleReaderFluentSqlCommand<T>()
+            {
+                CommandType = DefaultCommandType,
+                IsolationLevel = DefaultIsolationLevel,
+                Connection = DefaultConnection?.Invoke(),
+                Transaction = DefaultTransaction?.Invoke()
+            };
+        }
     }
 }
